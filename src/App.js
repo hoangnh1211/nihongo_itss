@@ -1,23 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-
+import { useState } from 'react';
+import UserList from './hook'
 function App() {
+  const  list_user = ['hoanganh','quynh','ducanh','dat','tra']
+  const [plIndex, miIndex, showList, index] = UserList(list_user)
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>学生一覧：[{showList()}]</p>
+      <p>位置　:　{index + 1}</p>
+      <p>名前： {list_user[index]}</p>
+      <button onClick={plIndex}>次に</button>
+      <button onClick={miIndex}>前に</button>
     </div>
   );
 }
